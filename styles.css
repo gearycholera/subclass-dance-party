@@ -59,7 +59,7 @@ body, a:link, a:visited, a:active{
 }
 
 .dancerBouncy{
-  border:10px solid blue;
+  border:10px solid #66ccff;
   position:absolute;
   -webkit-animation: jump 1.5s ease 0s infinite normal ;
     animation: jump 1.5s ease 0s infinite normal ;
