@@ -52,3 +52,18 @@ Dancer.prototype.setPosition = function(top, left) {
   };
   this.$node.css(styleSettings);
 };
+
+Dancer.prototype.gravitate = function(holeX, holeY, easingAmount) {
+
+  var xDistance = holeX - this.left;
+  var yDistance = holeY - this.top;
+  var distance = Math.sqrt(xDistance * xDistance + yDistance * yDistance);
+  if (distance > 1) {
+    this.left += xDistance * easingAmount;
+    this.top += yDistance * easingAmount;
+    this.setPosition(this.top, this.left);
+  }
+  // if (Math.abs(xDistance) > 100) {
+  //   this.gravitate(holeX, holeY, easingAmount);
+  // }
+};

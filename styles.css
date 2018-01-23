@@ -87,8 +87,8 @@ body, a:link, a:visited, a:active{
 }
 
 .blackHole {
-  border:10px solid black;
+/*  border:10px solid black;
   border-radius:10px;
-  position:absolute;
+*/  position:absolute;
 }
 

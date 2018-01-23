@@ -15,4 +15,5 @@ RotatingDancer.prototype.step = function() {
   };
   this.$node.css(styleSetting);
   this.pos += 50;
+
 };
