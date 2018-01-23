@@ -10,7 +10,7 @@ body{
 body, a:link, a:visited, a:active{
   color: lightblue;
 }
-.title, .addDancerButton, .lineUp{
+.title, .addDancerButton, .lineUp, .blackHoleButton{
   padding:5px 12px;
   float:right;
 }
@@ -84,5 +84,11 @@ body, a:link, a:visited, a:active{
 .dancer:hover {
   transform:scale(2,2);
   transform-origin:0 0;
+}
+
+.blackHole {
+  border:10px solid black;
+  border-radius:10px;
+  position:absolute;
 }
 

@@ -37,6 +37,8 @@ var Dancer = function(top, left, timeBetweenSteps) {
   this.step();
   this.setPosition(top, left);
   this.type = 'blinky';
+  this.top = top;
+  this.left = left;
 };
 
 Dancer.prototype.step = function() {

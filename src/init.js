@@ -38,5 +38,41 @@ $(document).ready(function() {
       x += 50;
     }
   });
+
+  $('.blackHoleButton').on('click', function(event) {
+    var dancerMakerFunctionName = $(this).data('dancer-maker-function-name');
+
+    // get the maker function for the kind of dancer we're supposed to make
+    var dancerMakerFunction = window[dancerMakerFunctionName];
+    // make a dancer with a random position
+
+    var dancer = new dancerMakerFunction(
+      $('body').height() * Math.random(),
+      $('body').width() * Math.random(),
+      Math.random() * 1000
+    );
+
+    $('body').append(dancer.$node);
+
+    var x = 50;
+    for (var i = 0; i < window.dancers.length; i++) {
+      window.dancers[i].setPosition(500, x);
+      x += 50;
+    }
+  });
+  //on click, store x and y of bh;
+  //iterate through dancer array;
+  //use that formula to do stuff;
+
+
+//   function gameLoop(){
+//    var xDistance = mouseX - ship.x;
+//    var yDistance = mouseY - ship.y;
+//    var distance = Math.sqrt(xDistance * xDistance + yDistance * yDistance);
+//    if (distance > 1) {
+//        ship.x += xDistance * easingAmount;
+//        ship.y += yDistance * easingAmount;
+//    }
+// }
 });
 
