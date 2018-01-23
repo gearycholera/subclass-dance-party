@@ -8,7 +8,4 @@ BouncyDancer.prototype = Object.create(Dancer.prototype);
 BouncyDancer.prototype.constructor = BouncyDancer;
 BouncyDancer.prototype.step = function() {
   Dancer.prototype.step.call(this);
-
-  this.left += 100;
-  this.setPosition(this.top, this.left);
 };
