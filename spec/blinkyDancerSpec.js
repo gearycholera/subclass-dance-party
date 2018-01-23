@@ -48,9 +48,6 @@ describe('bouncyDancer', function() {
     expect(bouncyDancer.$node).to.be.an.instanceof(jQuery);
   });
 
-  it('should have a node defined', function() {
-    expect(bouncyDancer.$node).to.not.equal(undefined);
-  });
 
   it('should have inherited properties from Dancer', function() {
     expect(bouncyDancer.gravitate).to.not.equal(undefined);
@@ -69,5 +66,78 @@ describe('bouncyDancer', function() {
       expect(bouncyDancer.step.callCount).to.be.equal(2);
     });
     
+  });
+});
+
+
+describe('rotatingDancer', function() {
+
+  var rotatingDancer, clock;
+  var timeBetweenSteps = 100;
+
+  beforeEach(function() {
+    clock = sinon.useFakeTimers();
+    rotatingDancer = new RotatingDancer(10, 20, timeBetweenSteps);
+  });
+
+  it('should have a jQuery $node object', function() {
+    expect(rotatingDancer.$node).to.be.an.instanceof(jQuery);
+  });
+
+
+  it('should have inherited properties from Dancer', function() {
+    expect(rotatingDancer.gravitate).to.not.equal(undefined);
+  });
+
+  describe('dance', function() {
+    it('should call step at least once per second and rotate image', function() {
+      sinon.spy(rotatingDancer, 'step');
+      expect(rotatingDancer.pos).to.be.equal(50);
+      clock.tick(timeBetweenSteps); // ? it seems an extra tick is necessary...
+      clock.tick(timeBetweenSteps);
+
+      expect(rotatingDancer.pos).to.be.equal(150);
+
+      clock.tick(timeBetweenSteps);
+      expect(rotatingDancer.pos).to.be.equal(200);
+    });
+  });
+});
+
+describe('blackHole', function() {
+
+  var blackHole, clock;
+  var timeBetweenSteps = 100;
+
+  beforeEach(function() {
+    clock = sinon.useFakeTimers();
+    blackHole = new BlackHole(10, 20, timeBetweenSteps);
+  });
+
+  it('should have a jQuery $node object', function() {
+    expect(blackHole.$node).to.be.an.instanceof(jQuery);
+  });
+
+
+  it('should have inherited properties from Dancer', function() {
+    expect(BlackHole.prototype.gravitate).to.equal(Dancer.prototype.gravitate);
+  });
+
+  it('should have inherited properties from RotatingDancer', function() {
+    expect(BlackHole.prototype.step).to.equal(RotatingDancer.prototype.step);
+  });
+
+  describe('dance', function() {
+    it('should call step at least once per second', function() {
+      sinon.spy(blackHole, 'step');
+      expect(blackHole.step.callCount).to.be.equal(0);
+      clock.tick(timeBetweenSteps); // ? it seems an extra tick is necessary...
+      clock.tick(timeBetweenSteps);
+
+      expect(blackHole.step.callCount).to.be.equal(1);
+
+      clock.tick(timeBetweenSteps);
+      expect(blackHole.step.callCount).to.be.equal(2);
+    });
   });
 });

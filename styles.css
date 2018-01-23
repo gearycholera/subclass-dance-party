@@ -71,7 +71,7 @@ body, a:link, a:visited, a:active{
     animation: jump 1.5s ease 0s infinite normal;
 }
 
-.dancerRotate{
+.dancerRotate, .blackHole{
   position:absolute;
   /*width: 0;
   height: 0;
