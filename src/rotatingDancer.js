@@ -10,7 +10,7 @@ RotatingDancer.prototype.constructor = RotatingDancer;
 RotatingDancer.prototype.step = function() {
   Dancer.prototype.step.call(this);
   var styleSetting = {
-    'position':'absolute',
+    'position': 'absolute',
     'width': '0',
     'height': '0',
     'border-style': 'solid',

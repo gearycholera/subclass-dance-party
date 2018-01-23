@@ -75,3 +75,8 @@ body, a:link, a:visited, a:active{
   transform: rotate(7deg);
 }
 
+.dancer:hover {
+  transform:scale(2,2);
+  transform-origin:0 0;
+}
+
