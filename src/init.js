@@ -39,9 +39,5 @@ $(document).ready(function() {
       x += 50;
     }
   });
-
-  // $('body').on('mouseover', '.dancer', function () {
-
-  // });
 });
 
