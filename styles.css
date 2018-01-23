@@ -65,3 +65,13 @@ body, a:link, a:visited, a:active{
     animation: jump 1.5s ease 0s infinite normal ;
 }
 
+.dancerRotate{
+  position:absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 10px 20px 10px;
+  border-color: transparent transparent #21942e transparent;
+  transform: rotate(7deg);
+}
+
