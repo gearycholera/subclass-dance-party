@@ -3,6 +3,7 @@ var RotatingDancer = function(top, left, timeBetweenSteps) {
   this.$node = $('<span class="dancerRotate"><img class="pic" src="spaceship.gif"></img></span>');
   this.setPosition(top, left);
   this.pos = 50;
+  this.type = 'rotating';
 };
 
 RotatingDancer.prototype = Object.create(Dancer.prototype);
