@@ -56,8 +56,7 @@ $(document).ready(function() {
     $('body').append(dancer.$node);
     
     for (var i = 0; i < window.dancers.length; i++) {
-      this.switch = true;
-      window.dancers[i].gravitate(dancer.left, dancer.top, .75);
+      window.dancers[i].gravitate(dancer.left, dancer.top);
     }
   });
 });

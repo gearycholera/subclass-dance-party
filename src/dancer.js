@@ -53,17 +53,21 @@ Dancer.prototype.setPosition = function(top, left) {
   this.$node.css(styleSettings);
 };
 
-Dancer.prototype.gravitate = function(holeX, holeY, easingAmount) {
-
-  var xDistance = holeX - this.left;
-  var yDistance = holeY - this.top;
-  var distance = Math.sqrt(xDistance * xDistance + yDistance * yDistance);
-  if (distance > 1) {
-    this.left += xDistance * easingAmount;
-    this.top += yDistance * easingAmount;
-    this.setPosition(this.top, this.left);
-  }
-  // if (Math.abs(xDistance) > 100) {
-  //   this.gravitate(holeX, holeY, easingAmount);
-  // }
+Dancer.prototype.gravitate = function(holeX, holeY) {
+  var posx = this.left;
+  var posy = this.top;
+  var item = this;
+  var id = setInterval(function frame() {
+    if ( Math.round(posy) === Math.round(holeY) && Math.round(posx) === Math.round(holeX)) {
+      clearInterval(id);
+    } else {
+      if (Math.round(posx) !== Math.round(holeX)) {
+        posx < holeX ? posx++ : posx--;
+      }
+      if (Math.round(posy) !== Math.round(holeY)) {
+        posy < holeY ? posy++ : posy--;
+      }
+      item.setPosition(posy, posx);
+    }
+  }, 5);
 };
