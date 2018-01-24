@@ -58,7 +58,7 @@ $(document).ready(function() {
     }
 
     window.dancers = [];
-    setTimeout(function(){$('.blackHole').remove();}, 5000);
+    setTimeout(function() { $('.blackHole').remove(); }, 5000);
   });
 });
 
