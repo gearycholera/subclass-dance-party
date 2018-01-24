@@ -40,9 +40,7 @@ $(document).ready(function() {
   });
 
   $('.blackHoleButton').on('click', function(event) {
-
     var dancerMakerFunctionName = $(this).data('dancer-maker-function-name');
-
     // get the maker function for the kind of dancer we're supposed to make
     var dancerMakerFunction = window[dancerMakerFunctionName];
     // make a dancer with a random position
@@ -58,6 +56,9 @@ $(document).ready(function() {
     for (var i = 0; i < window.dancers.length; i++) {
       window.dancers[i].gravitate(dancer.left, dancer.top);
     }
+
+    window.dancers = [];
+    setTimeout(function(){$('.blackHole').remove();}, 5000);
   });
 });
 

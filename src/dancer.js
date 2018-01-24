@@ -60,6 +60,9 @@ Dancer.prototype.gravitate = function(holeX, holeY) {
   var id = setInterval(function frame() {
     if ( Math.round(posy) === Math.round(holeY) && Math.round(posx) === Math.round(holeX)) {
       clearInterval(id);
+      item.$node.addClass('delete');
+      $('.delete').remove();
+
     } else {
       if (Math.round(posx) !== Math.round(holeX)) {
         posx < holeX ? posx++ : posx--;
